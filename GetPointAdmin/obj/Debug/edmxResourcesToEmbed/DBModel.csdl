@@ -1,0 +1,652 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GetPointModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="GetPointEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_Area" EntityType="GetPointModel.tbl_Area" />
+    <EntitySet Name="tbl_Category" EntityType="GetPointModel.tbl_Category" />
+    <EntitySet Name="tbl_City" EntityType="GetPointModel.tbl_City" />
+    <EntitySet Name="tbl_Customer" EntityType="GetPointModel.tbl_Customer" />
+    <EntitySet Name="tbl_CustomerAddress" EntityType="GetPointModel.tbl_CustomerAddress" />
+    <EntitySet Name="tbl_CustomerFav" EntityType="GetPointModel.tbl_CustomerFav" />
+    <EntitySet Name="tbl_Groups" EntityType="GetPointModel.tbl_Groups" />
+    <EntitySet Name="tbl_Item" EntityType="GetPointModel.tbl_Item" />
+    <EntitySet Name="tbl_ItemColor" EntityType="GetPointModel.tbl_ItemColor" />
+    <EntitySet Name="tbl_ItemGroup" EntityType="GetPointModel.tbl_ItemGroup" />
+    <EntitySet Name="tbl_ItemImage" EntityType="GetPointModel.tbl_ItemImage" />
+    <EntitySet Name="tbl_ItemSize" EntityType="GetPointModel.tbl_ItemSize" />
+    <EntitySet Name="tbl_Order" EntityType="GetPointModel.tbl_Order" />
+    <EntitySet Name="tbl_OrderItem" EntityType="GetPointModel.tbl_OrderItem" />
+    <EntitySet Name="tbl_OrderStatus" EntityType="GetPointModel.tbl_OrderStatus" />
+    <EntitySet Name="tbl_PaymentType" EntityType="GetPointModel.tbl_PaymentType" />
+    <EntitySet Name="tbl_ShoppingCartItem" EntityType="GetPointModel.tbl_ShoppingCartItem" />
+    <EntitySet Name="tbl_Slider" EntityType="GetPointModel.tbl_Slider" />
+    <EntitySet Name="tbl_SubCategory" EntityType="GetPointModel.tbl_SubCategory" />
+    <EntitySet Name="tbl_Supplier" EntityType="GetPointModel.tbl_Supplier" />
+    <EntitySet Name="tbl_Systemconfig" EntityType="GetPointModel.tbl_Systemconfig" />
+    <EntitySet Name="VW_City_Area" EntityType="GetPointModel.VW_City_Area" />
+    <EntitySet Name="VW_GroupItem" EntityType="GetPointModel.VW_GroupItem" />
+    <EntitySet Name="VW_ShoppingCart" EntityType="GetPointModel.VW_ShoppingCart" />
+    <EntitySet Name="VW_Item" EntityType="GetPointModel.VW_Item" />
+    <EntitySet Name="VW_OldOrders" EntityType="GetPointModel.VW_OldOrders" />
+    <AssociationSet Name="FK_tbl_Item_tbl_Category" Association="GetPointModel.FK_tbl_Item_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SubCategory_tbl_Category" Association="GetPointModel.FK_tbl_SubCategory_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_SubCategory" EntitySet="tbl_SubCategory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_CustomerAddress_tbl_Customer" Association="GetPointModel.FK_tbl_CustomerAddress_tbl_Customer">
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+      <End Role="tbl_CustomerAddress" EntitySet="tbl_CustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemGroup_tbl_Groups" Association="GetPointModel.FK_tbl_ItemGroup_tbl_Groups">
+      <End Role="tbl_Groups" EntitySet="tbl_Groups" />
+      <End Role="tbl_ItemGroup" EntitySet="tbl_ItemGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Item_tbl_Supplier" Association="GetPointModel.FK_tbl_Item_tbl_Supplier">
+      <End Role="tbl_Supplier" EntitySet="tbl_Supplier" />
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemColor_tbl_Item" Association="GetPointModel.FK_tbl_ItemColor_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemColor" EntitySet="tbl_ItemColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemGroup_tbl_Item" Association="GetPointModel.FK_tbl_ItemGroup_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemGroup" EntitySet="tbl_ItemGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemImage_tbl_Item" Association="GetPointModel.FK_tbl_ItemImage_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemImage" EntitySet="tbl_ItemImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemSize_tbl_Item" Association="GetPointModel.FK_tbl_ItemSize_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemSize" EntitySet="tbl_ItemSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_OrderItem_tbl_Item" Association="GetPointModel.FK_tbl_OrderItem_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_OrderItem" EntitySet="tbl_OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Slider_tbl_Item" Association="GetPointModel.FK_tbl_Slider_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_Slider" EntitySet="tbl_Slider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_OrderItem_tbl_Order" Association="GetPointModel.FK_tbl_OrderItem_tbl_Order">
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+      <End Role="tbl_OrderItem" EntitySet="tbl_OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Order_tbl_Customer" Association="GetPointModel.FK_tbl_Order_tbl_Customer">
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Order_tbl_PaymentType1" Association="GetPointModel.FK_tbl_Order_tbl_PaymentType1">
+      <End Role="tbl_PaymentType" EntitySet="tbl_PaymentType" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_Area">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="AreaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityID" Type="Int32" />
+    <Property Name="AreaTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryIsActive" Type="Boolean" />
+    <Property Name="CategorySort" Type="Int32" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_Item_tbl_Category" FromRole="tbl_Category" ToRole="tbl_Item" />
+    <NavigationProperty Name="tbl_SubCategory" Relationship="GetPointModel.FK_tbl_SubCategory_tbl_Category" FromRole="tbl_Category" ToRole="tbl_SubCategory" />
+  </EntityType>
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CityTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerFullName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerPassword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerIsActive" Type="Boolean" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerTele" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerIsVerified" Type="Boolean" />
+    <Property Name="CustomerProfilePic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_CustomerAddress" Relationship="GetPointModel.FK_tbl_CustomerAddress_tbl_Customer" FromRole="tbl_Customer" ToRole="tbl_CustomerAddress" />
+    <NavigationProperty Name="tbl_Order" Relationship="GetPointModel.FK_tbl_Order_tbl_Customer" FromRole="tbl_Customer" ToRole="tbl_Order" />
+  </EntityType>
+  <EntityType Name="tbl_CustomerAddress">
+    <Key>
+      <PropertyRef Name="CustomerAddressID" />
+    </Key>
+    <Property Name="CustomerAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerAddressTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAddressCityID" Type="Int32" />
+    <Property Name="CustomerAddressAreaID" Type="Int32" />
+    <Property Name="CustomerAddressDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerAddressLat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAddressLng" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerAddressMapLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Customer" Relationship="GetPointModel.FK_tbl_CustomerAddress_tbl_Customer" FromRole="tbl_CustomerAddress" ToRole="tbl_Customer" />
+  </EntityType>
+  <EntityType Name="tbl_CustomerFav">
+    <Key>
+      <PropertyRef Name="CustomerFavID" />
+    </Key>
+    <Property Name="CustomerFavID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="CustomerID" Type="Int32" />
+  </EntityType>
+  <EntityType Name="tbl_Groups">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="GroupPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_ItemGroup" Relationship="GetPointModel.FK_tbl_ItemGroup_tbl_Groups" FromRole="tbl_Groups" ToRole="tbl_ItemGroup" />
+  </EntityType>
+  <EntityType Name="tbl_Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="PointsCredit" Type="Double" />
+    <Property Name="NoOfViews" Type="Int32" />
+    <NavigationProperty Name="tbl_Category" Relationship="GetPointModel.FK_tbl_Item_tbl_Category" FromRole="tbl_Item" ToRole="tbl_Category" />
+    <NavigationProperty Name="tbl_Supplier" Relationship="GetPointModel.FK_tbl_Item_tbl_Supplier" FromRole="tbl_Item" ToRole="tbl_Supplier" />
+    <NavigationProperty Name="tbl_ItemColor" Relationship="GetPointModel.FK_tbl_ItemColor_tbl_Item" FromRole="tbl_Item" ToRole="tbl_ItemColor" />
+    <NavigationProperty Name="tbl_ItemGroup" Relationship="GetPointModel.FK_tbl_ItemGroup_tbl_Item" FromRole="tbl_Item" ToRole="tbl_ItemGroup" />
+    <NavigationProperty Name="tbl_ItemImage" Relationship="GetPointModel.FK_tbl_ItemImage_tbl_Item" FromRole="tbl_Item" ToRole="tbl_ItemImage" />
+    <NavigationProperty Name="tbl_ItemSize" Relationship="GetPointModel.FK_tbl_ItemSize_tbl_Item" FromRole="tbl_Item" ToRole="tbl_ItemSize" />
+    <NavigationProperty Name="tbl_OrderItem" Relationship="GetPointModel.FK_tbl_OrderItem_tbl_Item" FromRole="tbl_Item" ToRole="tbl_OrderItem" />
+    <NavigationProperty Name="tbl_Slider" Relationship="GetPointModel.FK_tbl_Slider_tbl_Item" FromRole="tbl_Item" ToRole="tbl_Slider" />
+  </EntityType>
+  <EntityType Name="tbl_ItemColor">
+    <Key>
+      <PropertyRef Name="ItemColorID" />
+    </Key>
+    <Property Name="ItemColorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemColorTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_ItemColor_tbl_Item" FromRole="tbl_ItemColor" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_ItemGroup">
+    <Key>
+      <PropertyRef Name="ItemGroupId" />
+    </Key>
+    <Property Name="ItemGroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemId" Type="Int32" />
+    <Property Name="GroupId" Type="Int32" />
+    <NavigationProperty Name="tbl_Groups" Relationship="GetPointModel.FK_tbl_ItemGroup_tbl_Groups" FromRole="tbl_ItemGroup" ToRole="tbl_Groups" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_ItemGroup_tbl_Item" FromRole="tbl_ItemGroup" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_ItemImage">
+    <Key>
+      <PropertyRef Name="tbl_ItemImageID" />
+    </Key>
+    <Property Name="tbl_ItemImageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tbl_ItemImageTitle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="tbl_ItemImagePic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_ItemImage_tbl_Item" FromRole="tbl_ItemImage" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_ItemSize">
+    <Key>
+      <PropertyRef Name="ItemSizeID" />
+    </Key>
+    <Property Name="ItemSizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemSizeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_ItemSize_tbl_Item" FromRole="tbl_ItemSize" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="DeliveryFees" Type="Double" />
+    <Property Name="Net" Type="Double" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStatusID" Type="Int32" />
+    <Property Name="PaymentType" Type="Int32" />
+    <Property Name="CustomerAddressID" Type="Int32" />
+    <Property Name="UsedPoints" Type="Double" />
+    <Property Name="UsedPointsCredit" Type="Double" />
+    <NavigationProperty Name="tbl_OrderItem" Relationship="GetPointModel.FK_tbl_OrderItem_tbl_Order" FromRole="tbl_Order" ToRole="tbl_OrderItem" />
+    <NavigationProperty Name="tbl_Customer" Relationship="GetPointModel.FK_tbl_Order_tbl_Customer" FromRole="tbl_Order" ToRole="tbl_Customer" />
+    <NavigationProperty Name="tbl_PaymentType" Relationship="GetPointModel.FK_tbl_Order_tbl_PaymentType1" FromRole="tbl_Order" ToRole="tbl_PaymentType" />
+  </EntityType>
+  <EntityType Name="tbl_OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="Qty" Type="Double" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemTotal" Type="Double" />
+    <Property Name="ItemColorID" Type="Int32" />
+    <Property Name="ItemSizeID" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="PointsCredit" Type="Double" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_OrderItem_tbl_Item" FromRole="tbl_OrderItem" ToRole="tbl_Item" />
+    <NavigationProperty Name="tbl_Order" Relationship="GetPointModel.FK_tbl_OrderItem_tbl_Order" FromRole="tbl_OrderItem" ToRole="tbl_Order" />
+  </EntityType>
+  <EntityType Name="tbl_OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderStatusTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="tbl_PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentTypeTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PaymentTypeTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Order" Relationship="GetPointModel.FK_tbl_Order_tbl_PaymentType1" FromRole="tbl_PaymentType" ToRole="tbl_Order" />
+  </EntityType>
+  <EntityType Name="tbl_ShoppingCartItem">
+    <Key>
+      <PropertyRef Name="ShoppingCartItemID" />
+    </Key>
+    <Property Name="ShoppingCartItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="Qty" Type="Double" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemTotal" Type="Double" />
+    <Property Name="ItemColorID" Type="Int32" />
+    <Property Name="ItemSizeID" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Closed" Type="Boolean" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="PointsCredit" Type="Double" />
+  </EntityType>
+  <EntityType Name="tbl_Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SliderTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SliderPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ItemID" Type="Int32" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_Slider_tbl_Item" FromRole="tbl_Slider" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubCategoryTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryIsActive" Type="Boolean" />
+    <Property Name="SubCategorySort" Type="Int32" />
+    <Property Name="SubCategoryDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_Category" Relationship="GetPointModel.FK_tbl_SubCategory_tbl_Category" FromRole="tbl_SubCategory" ToRole="tbl_Category" />
+  </EntityType>
+  <EntityType Name="tbl_Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SupplierTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierIsActive" Type="Boolean" />
+    <Property Name="SupplierEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTele" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierContactPerson" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierContactMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_Item" Relationship="GetPointModel.FK_tbl_Item_tbl_Supplier" FromRole="tbl_Supplier" ToRole="tbl_Item" />
+  </EntityType>
+  <EntityType Name="tbl_Systemconfig">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Info" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_City_Area">
+    <Key>
+      <PropertyRef Name="CityID" />
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="CityID" Type="Int32" Nullable="false" />
+    <Property Name="CityTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AreaTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AreaID" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VW_GroupItem">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="GroupTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sort" Type="Int32" />
+    <Property Name="GroupPic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="ItemSizeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemColorTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ColorCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GroupId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VW_ShoppingCart">
+    <Key>
+      <PropertyRef Name="ShoppingCartItemID" />
+    </Key>
+    <Property Name="ShoppingCartItemID" Type="Int32" Nullable="false" />
+    <Property Name="ItemID" Type="Int32" />
+    <Property Name="Qty" Type="Double" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemTotal" Type="Double" />
+    <Property Name="ItemColorID" Type="Int32" />
+    <Property Name="ItemSizeID" Type="Int32" />
+    <Property Name="Remarks" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="Closed" Type="Boolean" />
+    <Property Name="ItemTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="Expr1" Type="Double" />
+    <Property Name="ItemDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemSizeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemColorTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PointsCredit" Type="Double" />
+    <Property Name="Points" Type="Double" />
+  </EntityType>
+  <EntityType Name="VW_Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="PointsCredit" Type="Double" />
+    <Property Name="NoOfViews" Type="Int32" />
+    <Property Name="CategoryTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryTitleAr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SubCategoryTitleEn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemColorTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ItemSizeTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_OldOrders">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="SupplierID" />
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="ItemID" Type="Int32" Nullable="false" />
+    <Property Name="CategoryID" Type="Int32" Nullable="false" />
+    <Property Name="ItemTitle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ItemPrice" Type="Double" />
+    <Property Name="ItemPic" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="SupplierID" Type="Int32" Nullable="false" />
+    <Property Name="SubCategoryId" Type="Int32" />
+    <Property Name="Points" Type="Double" />
+    <Property Name="PointsCredit" Type="Double" />
+    <Property Name="NoOfViews" Type="Int32" />
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="CustomerID" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="DateTime" Precision="3" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="Discount" Type="Double" />
+    <Property Name="DeliveryFees" Type="Double" />
+    <Property Name="Net" Type="Double" />
+    <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="OrderStatusID" Type="Int32" />
+    <Property Name="PaymentType" Type="Int32" />
+    <Property Name="CustomerAddressID" Type="Int32" />
+    <Property Name="UsedPoints" Type="Double" />
+    <Property Name="UsedPointsCredit" Type="Double" />
+    <Property Name="Qty" Type="Double" />
+    <Property Name="ItemColorID" Type="Int32" />
+    <Property Name="ItemSizeID" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_tbl_Item_tbl_Category">
+    <End Type="GetPointModel.tbl_Category" Role="tbl_Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Item">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SubCategory_tbl_Category">
+    <End Type="GetPointModel.tbl_Category" Role="tbl_Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_SubCategory" Role="tbl_SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_CustomerAddress_tbl_Customer">
+    <End Type="GetPointModel.tbl_Customer" Role="tbl_Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_CustomerAddress" Role="tbl_CustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tbl_CustomerAddress">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemGroup_tbl_Groups">
+    <End Type="GetPointModel.tbl_Groups" Role="tbl_Groups" Multiplicity="0..1" />
+    <End Type="GetPointModel.tbl_ItemGroup" Role="tbl_ItemGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Groups">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="tbl_ItemGroup">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Item_tbl_Supplier">
+    <End Type="GetPointModel.tbl_Supplier" Role="tbl_Supplier" Multiplicity="1" />
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="tbl_Item">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemColor_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_ItemColor" Role="tbl_ItemColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemColor">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemGroup_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_ItemGroup" Role="tbl_ItemGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemGroup">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemImage_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_ItemImage" Role="tbl_ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemImage">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemSize_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="GetPointModel.tbl_ItemSize" Role="tbl_ItemSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemSize">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_OrderItem_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="0..1" />
+    <End Type="GetPointModel.tbl_OrderItem" Role="tbl_OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_OrderItem">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Slider_tbl_Item">
+    <End Type="GetPointModel.tbl_Item" Role="tbl_Item" Multiplicity="0..1" />
+    <End Type="GetPointModel.tbl_Slider" Role="tbl_Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_Slider">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_OrderItem_tbl_Order">
+    <End Type="GetPointModel.tbl_Order" Role="tbl_Order" Multiplicity="1" />
+    <End Type="GetPointModel.tbl_OrderItem" Role="tbl_OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="tbl_OrderItem">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Order_tbl_Customer">
+    <End Type="GetPointModel.tbl_Customer" Role="tbl_Customer" Multiplicity="1" />
+    <End Type="GetPointModel.tbl_Order" Role="tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Order_tbl_PaymentType1">
+    <End Type="GetPointModel.tbl_PaymentType" Role="tbl_PaymentType" Multiplicity="0..1" />
+    <End Type="GetPointModel.tbl_Order" Role="tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="PaymentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

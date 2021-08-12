@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="03cc83fee67d418bac4e666fa0370f64" Name="Diagram1" ZoomLevel="92">
+        <EntityTypeShape EntityType="GetPointModel.tbl_Area" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Category" Width="1.5" PointX="0.75" PointY="10.875" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_City" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Customer" Width="1.5" PointX="7.75" PointY="7" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_CustomerAddress" Width="1.5" PointX="10" PointY="7.125" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_CustomerFav" Width="1.5" PointX="8.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Groups" Width="1.5" PointX="6" PointY="3" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Item" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_ItemColor" Width="1.5" PointX="5.25" PointY="19.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_ItemGroup" Width="1.5" PointX="8.25" PointY="11.25" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_ItemImage" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_ItemSize" Width="1.5" PointX="5.25" PointY="22.5" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Order" Width="1.5" PointX="3" PointY="5.375" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_OrderItem" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_OrderStatus" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_PaymentType" Width="1.5" PointX="8.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_ShoppingCartItem" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Slider" Width="1.5" PointX="5.25" PointY="16.875" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_SubCategory" Width="1.5" PointX="3" PointY="21.75" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Supplier" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="GetPointModel.tbl_Systemconfig" Width="1.5" PointX="10.75" PointY="11.75" />
+        <EntityTypeShape EntityType="GetPointModel.VW_City_Area" Width="1.5" PointX="12.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.VW_GroupItem" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GetPointModel.VW_ShoppingCart" Width="1.5" PointX="12.75" PointY="9.75" />
+        <EntityTypeShape EntityType="GetPointModel.VW_Item" Width="1.5" PointX="14.75" PointY="0.75" />
+        <EntityTypeShape EntityType="GetPointModel.VW_OldOrders" Width="1.5" PointX="14.75" PointY="6.75" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_Item_tbl_Category" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_SubCategory_tbl_Category" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_CustomerAddress_tbl_Customer" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_ItemGroup_tbl_Groups" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_Item_tbl_Supplier" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_ItemColor_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_ItemGroup_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_ItemImage_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_ItemSize_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_OrderItem_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_Slider_tbl_Item" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_OrderItem_tbl_Order" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_Order_tbl_Customer" />
+        <AssociationConnector Association="GetPointModel.FK_tbl_Order_tbl_PaymentType1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

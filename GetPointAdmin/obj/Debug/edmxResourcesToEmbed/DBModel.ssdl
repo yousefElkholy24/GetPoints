@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GetPointModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_Area">
+    <Key>
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="AreaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityID" Type="int" />
+    <Property Name="AreaTitle" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Category">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="CategoryIsActive" Type="bit" />
+    <Property Name="CategorySort" Type="int" />
+    <Property Name="CategoryDescription" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Name="CityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CityTitle" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerFullName" Type="nvarchar" MaxLength="150" />
+    <Property Name="CustomerUserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerPassword" Type="nvarchar" MaxLength="500" />
+    <Property Name="CustomerIsActive" Type="bit" />
+    <Property Name="CustomerEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="CustomerMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerTele" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerIsVerified" Type="bit" />
+    <Property Name="CustomerProfilePic" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_CustomerAddress">
+    <Key>
+      <PropertyRef Name="CustomerAddressID" />
+    </Key>
+    <Property Name="CustomerAddressID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerAddressTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerAddressCityID" Type="int" />
+    <Property Name="CustomerAddressAreaID" Type="int" />
+    <Property Name="CustomerAddressDetails" Type="nvarchar(max)" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="CustomerAddressLat" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerAddressLng" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerAddressMapLocation" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_CustomerFav">
+    <Key>
+      <PropertyRef Name="CustomerFavID" />
+    </Key>
+    <Property Name="CustomerFavID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="CustomerID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Groups">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GroupTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="GroupPic" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+    </Key>
+    <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="SubCategoryId" Type="int" />
+    <Property Name="Points" Type="float" />
+    <Property Name="PointsCredit" Type="float" />
+    <Property Name="NoOfViews" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ItemColor">
+    <Key>
+      <PropertyRef Name="ItemColorID" />
+    </Key>
+    <Property Name="ItemColorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemColorTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ColorCode" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ItemGroup">
+    <Key>
+      <PropertyRef Name="ItemGroupId" />
+    </Key>
+    <Property Name="ItemGroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemId" Type="int" />
+    <Property Name="GroupId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_ItemImage">
+    <Key>
+      <PropertyRef Name="tbl_ItemImageID" />
+    </Key>
+    <Property Name="tbl_ItemImageID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tbl_ItemImageTitle" Type="nvarchar(max)" />
+    <Property Name="tbl_ItemImagePic" Type="nvarchar" MaxLength="150" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ItemSize">
+    <Key>
+      <PropertyRef Name="ItemSizeID" />
+    </Key>
+    <Property Name="ItemSizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemSizeTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="DeliveryFees" Type="float" />
+    <Property Name="Net" Type="float" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="PaymentType" Type="int" />
+    <Property Name="CustomerAddressID" Type="int" />
+    <Property Name="UsedPoints" Type="float" />
+    <Property Name="UsedPointsCredit" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_OrderItem">
+    <Key>
+      <PropertyRef Name="OrderItemID" />
+    </Key>
+    <Property Name="OrderItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="Qty" Type="float" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemTotal" Type="float" />
+    <Property Name="ItemColorID" Type="int" />
+    <Property Name="ItemSizeID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="Points" Type="float" />
+    <Property Name="PointsCredit" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_OrderStatus">
+    <Key>
+      <PropertyRef Name="OrderStatusID" />
+    </Key>
+    <Property Name="OrderStatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OrderStatusTitle" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_PaymentType">
+    <Key>
+      <PropertyRef Name="PaymentTypeID" />
+    </Key>
+    <Property Name="PaymentTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentTypeTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="PaymentTypeTitleEn" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_ShoppingCartItem">
+    <Key>
+      <PropertyRef Name="ShoppingCartItemID" />
+    </Key>
+    <Property Name="ShoppingCartItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Qty" Type="float" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemTotal" Type="float" />
+    <Property Name="ItemColorID" Type="int" />
+    <Property Name="ItemSizeID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="Closed" Type="bit" />
+    <Property Name="Points" Type="float" />
+    <Property Name="PointsCredit" Type="float" />
+  </EntityType>
+  <EntityType Name="tbl_Slider">
+    <Key>
+      <PropertyRef Name="SliderId" />
+    </Key>
+    <Property Name="SliderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SliderTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="SliderPic" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ItemID" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_SubCategory">
+    <Key>
+      <PropertyRef Name="SubCategoryID" />
+    </Key>
+    <Property Name="SubCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubCategoryTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubCategoryTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubCategoryPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="SubCategoryIsActive" Type="bit" />
+    <Property Name="SubCategorySort" Type="int" />
+    <Property Name="SubCategoryDescription" Type="nvarchar(max)" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_Supplier">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierTitle" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierIsActive" Type="bit" />
+    <Property Name="SupplierEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierMobile" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierTele" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierContactPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierContactMobile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tbl_Systemconfig">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" />
+    <Property Name="Info" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GetPointsDB.dbo.VW_City_Area' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_City_Area">
+    <Key>
+      <PropertyRef Name="CityID" />
+      <PropertyRef Name="AreaID" />
+    </Key>
+    <Property Name="CityID" Type="int" Nullable="false" />
+    <Property Name="CityTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="AreaTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="AreaID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GetPointsDB.dbo.VW_GroupItem' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_GroupItem">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="CategoryTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="GroupTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sort" Type="int" />
+    <Property Name="GroupPic" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="ItemSizeTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemColorTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ColorCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="GroupId" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'GetPointsDB.dbo.VW_OrdersReport' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="VW_OrdersReport">
+          <Property Name="PaymentTypeTitleEn" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="Net" Type="float" />
+          <Property Name="Qty" Type="float" />
+          <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+          <Property Name="CustomerFullName" Type="nvarchar" MaxLength="150" />
+          <Property Name="CustomerEmail" Type="nvarchar" MaxLength="150" />
+          <Property Name="CustomerMobile" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GetPointsDB.dbo.VW_ShoppingCart' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_ShoppingCart">
+    <Key>
+      <PropertyRef Name="ShoppingCartItemID" />
+    </Key>
+    <Property Name="ShoppingCartItemID" Type="int" Nullable="false" />
+    <Property Name="ItemID" Type="int" />
+    <Property Name="Qty" Type="float" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemTotal" Type="float" />
+    <Property Name="ItemColorID" Type="int" />
+    <Property Name="ItemSizeID" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="50" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="Closed" Type="bit" />
+    <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="Expr1" Type="float" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemSizeTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemColorTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="PointsCredit" Type="float" />
+    <Property Name="Points" Type="float" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GetPointsDB.GetPointsDBUser.VW_Item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_Item">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="SubCategoryId" Type="int" />
+    <Property Name="Points" Type="float" />
+    <Property Name="PointsCredit" Type="float" />
+    <Property Name="NoOfViews" Type="int" />
+    <Property Name="CategoryTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="CategoryTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubCategoryTitleAr" Type="nvarchar" MaxLength="50" />
+    <Property Name="SubCategoryTitleEn" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemColorTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="ItemSizeTitle" Type="nvarchar" MaxLength="50" />
+    <Property Name="SupplierTitle" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierMobile" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'GetPointsDB.GetPointsDBUser.VW_OldOrders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="VW_OldOrders">
+    <Key>
+      <PropertyRef Name="ItemID" />
+      <PropertyRef Name="CategoryID" />
+      <PropertyRef Name="SupplierID" />
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="ItemID" Type="int" Nullable="false" />
+    <Property Name="CategoryID" Type="int" Nullable="false" />
+    <Property Name="ItemTitle" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemDescription" Type="nvarchar" MaxLength="250" />
+    <Property Name="ItemPrice" Type="float" />
+    <Property Name="ItemPic" Type="nvarchar" MaxLength="150" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="SubCategoryId" Type="int" />
+    <Property Name="Points" Type="float" />
+    <Property Name="PointsCredit" Type="float" />
+    <Property Name="NoOfViews" Type="int" />
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="CustomerID" Type="int" Nullable="false" />
+    <Property Name="OrderDate" Type="datetime" />
+    <Property Name="Total" Type="float" />
+    <Property Name="Discount" Type="float" />
+    <Property Name="DeliveryFees" Type="float" />
+    <Property Name="Net" Type="float" />
+    <Property Name="Remarks" Type="nvarchar(max)" />
+    <Property Name="OrderStatusID" Type="int" />
+    <Property Name="PaymentType" Type="int" />
+    <Property Name="CustomerAddressID" Type="int" />
+    <Property Name="UsedPoints" Type="float" />
+    <Property Name="UsedPointsCredit" Type="float" />
+    <Property Name="Qty" Type="float" />
+    <Property Name="ItemColorID" Type="int" />
+    <Property Name="ItemSizeID" Type="int" />
+  </EntityType>
+  <Association Name="FK_tbl_CustomerAddress_tbl_Customer">
+    <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_CustomerAddress" Type="Self.tbl_CustomerAddress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tbl_CustomerAddress">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Item_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_Item">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Item_tbl_Supplier">
+    <End Role="tbl_Supplier" Type="Self.tbl_Supplier" Multiplicity="1" />
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Supplier">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="tbl_Item">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemColor_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ItemColor" Type="Self.tbl_ItemColor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemColor">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemGroup_tbl_Groups">
+    <End Role="tbl_Groups" Type="Self.tbl_Groups" Multiplicity="0..1" />
+    <End Role="tbl_ItemGroup" Type="Self.tbl_ItemGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Groups">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="tbl_ItemGroup">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemGroup_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ItemGroup" Type="Self.tbl_ItemGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemGroup">
+        <PropertyRef Name="ItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemImage_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ItemImage" Type="Self.tbl_ItemImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemImage">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_ItemSize_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ItemSize" Type="Self.tbl_ItemSize" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_ItemSize">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Order_tbl_Customer">
+    <End Role="tbl_Customer" Type="Self.tbl_Customer" Multiplicity="1" />
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Order_tbl_PaymentType1">
+    <End Role="tbl_PaymentType" Type="Self.tbl_PaymentType" Multiplicity="0..1" />
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_PaymentType">
+        <PropertyRef Name="PaymentTypeID" />
+      </Principal>
+      <Dependent Role="tbl_Order">
+        <PropertyRef Name="PaymentType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_OrderItem_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="0..1" />
+    <End Role="tbl_OrderItem" Type="Self.tbl_OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_OrderItem">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_OrderItem_tbl_Order">
+    <End Role="tbl_Order" Type="Self.tbl_Order" Multiplicity="1" />
+    <End Role="tbl_OrderItem" Type="Self.tbl_OrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Order">
+        <PropertyRef Name="OrderID" />
+      </Principal>
+      <Dependent Role="tbl_OrderItem">
+        <PropertyRef Name="OrderID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_Slider_tbl_Item">
+    <End Role="tbl_Item" Type="Self.tbl_Item" Multiplicity="0..1" />
+    <End Role="tbl_Slider" Type="Self.tbl_Slider" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Item">
+        <PropertyRef Name="ItemID" />
+      </Principal>
+      <Dependent Role="tbl_Slider">
+        <PropertyRef Name="ItemID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tbl_SubCategory_tbl_Category">
+    <End Role="tbl_Category" Type="Self.tbl_Category" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_SubCategory" Type="Self.tbl_SubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_Category">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="tbl_SubCategory">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GetPointModelStoreContainer">
+    <EntitySet Name="tbl_Area" EntityType="Self.tbl_Area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Category" EntityType="Self.tbl_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_City" EntityType="Self.tbl_City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Customer" EntityType="Self.tbl_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_CustomerAddress" EntityType="Self.tbl_CustomerAddress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_CustomerFav" EntityType="Self.tbl_CustomerFav" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Groups" EntityType="Self.tbl_Groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Item" EntityType="Self.tbl_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ItemColor" EntityType="Self.tbl_ItemColor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ItemGroup" EntityType="Self.tbl_ItemGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ItemImage" EntityType="Self.tbl_ItemImage" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ItemSize" EntityType="Self.tbl_ItemSize" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Order" EntityType="Self.tbl_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_OrderItem" EntityType="Self.tbl_OrderItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_OrderStatus" EntityType="Self.tbl_OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_PaymentType" EntityType="Self.tbl_PaymentType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ShoppingCartItem" EntityType="Self.tbl_ShoppingCartItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Slider" EntityType="Self.tbl_Slider" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_SubCategory" EntityType="Self.tbl_SubCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Supplier" EntityType="Self.tbl_Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_Systemconfig" EntityType="Self.tbl_Systemconfig" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VW_City_Area" EntityType="Self.VW_City_Area" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_City_Area].[CityID] AS [CityID], 
+    [VW_City_Area].[CityTitle] AS [CityTitle], 
+    [VW_City_Area].[AreaTitle] AS [AreaTitle], 
+    [VW_City_Area].[AreaID] AS [AreaID]
+    FROM [dbo].[VW_City_Area] AS [VW_City_Area]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_GroupItem" EntityType="Self.VW_GroupItem" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_GroupItem].[ItemID] AS [ItemID], 
+    [VW_GroupItem].[ItemTitle] AS [ItemTitle], 
+    [VW_GroupItem].[ItemDescription] AS [ItemDescription], 
+    [VW_GroupItem].[ItemPrice] AS [ItemPrice], 
+    [VW_GroupItem].[ItemPic] AS [ItemPic], 
+    [VW_GroupItem].[CategoryTitleAr] AS [CategoryTitleAr], 
+    [VW_GroupItem].[CategoryTitleEn] AS [CategoryTitleEn], 
+    [VW_GroupItem].[CategoryID] AS [CategoryID], 
+    [VW_GroupItem].[GroupTitleAr] AS [GroupTitleAr], 
+    [VW_GroupItem].[GroupTitleEn] AS [GroupTitleEn], 
+    [VW_GroupItem].[Sort] AS [Sort], 
+    [VW_GroupItem].[GroupPic] AS [GroupPic], 
+    [VW_GroupItem].[IsActive] AS [IsActive], 
+    [VW_GroupItem].[ItemSizeTitle] AS [ItemSizeTitle], 
+    [VW_GroupItem].[ItemColorTitle] AS [ItemColorTitle], 
+    [VW_GroupItem].[ColorCode] AS [ColorCode], 
+    [VW_GroupItem].[GroupId] AS [GroupId]
+    FROM [dbo].[VW_GroupItem] AS [VW_GroupItem]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_ShoppingCart" EntityType="Self.VW_ShoppingCart" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VW_ShoppingCart].[ShoppingCartItemID] AS [ShoppingCartItemID], 
+    [VW_ShoppingCart].[ItemID] AS [ItemID], 
+    [VW_ShoppingCart].[Qty] AS [Qty], 
+    [VW_ShoppingCart].[ItemPrice] AS [ItemPrice], 
+    [VW_ShoppingCart].[ItemTotal] AS [ItemTotal], 
+    [VW_ShoppingCart].[ItemColorID] AS [ItemColorID], 
+    [VW_ShoppingCart].[ItemSizeID] AS [ItemSizeID], 
+    [VW_ShoppingCart].[Remarks] AS [Remarks], 
+    [VW_ShoppingCart].[CustomerID] AS [CustomerID], 
+    [VW_ShoppingCart].[Closed] AS [Closed], 
+    [VW_ShoppingCart].[ItemTitle] AS [ItemTitle], 
+    [VW_ShoppingCart].[ItemPic] AS [ItemPic], 
+    [VW_ShoppingCart].[Expr1] AS [Expr1], 
+    [VW_ShoppingCart].[ItemDescription] AS [ItemDescription], 
+    [VW_ShoppingCart].[ItemSizeTitle] AS [ItemSizeTitle], 
+    [VW_ShoppingCart].[ItemColorTitle] AS [ItemColorTitle], 
+    [VW_ShoppingCart].[PointsCredit] AS [PointsCredit], 
+    [VW_ShoppingCart].[Points] AS [Points]
+    FROM [dbo].[VW_ShoppingCart] AS [VW_ShoppingCart]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_Item" EntityType="Self.VW_Item" store:Type="Views" store:Schema="GetPointsDBUser">
+      <DefiningQuery>SELECT 
+    [VW_Item].[ItemID] AS [ItemID], 
+    [VW_Item].[CategoryID] AS [CategoryID], 
+    [VW_Item].[ItemTitle] AS [ItemTitle], 
+    [VW_Item].[ItemDescription] AS [ItemDescription], 
+    [VW_Item].[ItemPrice] AS [ItemPrice], 
+    [VW_Item].[ItemPic] AS [ItemPic], 
+    [VW_Item].[SupplierID] AS [SupplierID], 
+    [VW_Item].[SubCategoryId] AS [SubCategoryId], 
+    [VW_Item].[Points] AS [Points], 
+    [VW_Item].[PointsCredit] AS [PointsCredit], 
+    [VW_Item].[NoOfViews] AS [NoOfViews], 
+    [VW_Item].[CategoryTitleAr] AS [CategoryTitleAr], 
+    [VW_Item].[CategoryTitleEn] AS [CategoryTitleEn], 
+    [VW_Item].[SubCategoryTitleAr] AS [SubCategoryTitleAr], 
+    [VW_Item].[SubCategoryTitleEn] AS [SubCategoryTitleEn], 
+    [VW_Item].[ItemColorTitle] AS [ItemColorTitle], 
+    [VW_Item].[ItemSizeTitle] AS [ItemSizeTitle], 
+    [VW_Item].[SupplierTitle] AS [SupplierTitle], 
+    [VW_Item].[SupplierMobile] AS [SupplierMobile]
+    FROM [GetPointsDBUser].[VW_Item] AS [VW_Item]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VW_OldOrders" EntityType="Self.VW_OldOrders" store:Type="Views" store:Schema="GetPointsDBUser">
+      <DefiningQuery>SELECT 
+    [VW_OldOrders].[ItemID] AS [ItemID], 
+    [VW_OldOrders].[CategoryID] AS [CategoryID], 
+    [VW_OldOrders].[ItemTitle] AS [ItemTitle], 
+    [VW_OldOrders].[ItemDescription] AS [ItemDescription], 
+    [VW_OldOrders].[ItemPrice] AS [ItemPrice], 
+    [VW_OldOrders].[ItemPic] AS [ItemPic], 
+    [VW_OldOrders].[SupplierID] AS [SupplierID], 
+    [VW_OldOrders].[SubCategoryId] AS [SubCategoryId], 
+    [VW_OldOrders].[Points] AS [Points], 
+    [VW_OldOrders].[PointsCredit] AS [PointsCredit], 
+    [VW_OldOrders].[NoOfViews] AS [NoOfViews], 
+    [VW_OldOrders].[OrderID] AS [OrderID], 
+    [VW_OldOrders].[CustomerID] AS [CustomerID], 
+    [VW_OldOrders].[OrderDate] AS [OrderDate], 
+    [VW_OldOrders].[Total] AS [Total], 
+    [VW_OldOrders].[Discount] AS [Discount], 
+    [VW_OldOrders].[DeliveryFees] AS [DeliveryFees], 
+    [VW_OldOrders].[Net] AS [Net], 
+    [VW_OldOrders].[Remarks] AS [Remarks], 
+    [VW_OldOrders].[OrderStatusID] AS [OrderStatusID], 
+    [VW_OldOrders].[PaymentType] AS [PaymentType], 
+    [VW_OldOrders].[CustomerAddressID] AS [CustomerAddressID], 
+    [VW_OldOrders].[UsedPoints] AS [UsedPoints], 
+    [VW_OldOrders].[UsedPointsCredit] AS [UsedPointsCredit], 
+    [VW_OldOrders].[Qty] AS [Qty], 
+    [VW_OldOrders].[ItemColorID] AS [ItemColorID], 
+    [VW_OldOrders].[ItemSizeID] AS [ItemSizeID]
+    FROM [GetPointsDBUser].[VW_OldOrders] AS [VW_OldOrders]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_tbl_CustomerAddress_tbl_Customer" Association="Self.FK_tbl_CustomerAddress_tbl_Customer">
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+      <End Role="tbl_CustomerAddress" EntitySet="tbl_CustomerAddress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Item_tbl_Category" Association="Self.FK_tbl_Item_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Item_tbl_Supplier" Association="Self.FK_tbl_Item_tbl_Supplier">
+      <End Role="tbl_Supplier" EntitySet="tbl_Supplier" />
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemColor_tbl_Item" Association="Self.FK_tbl_ItemColor_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemColor" EntitySet="tbl_ItemColor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemGroup_tbl_Groups" Association="Self.FK_tbl_ItemGroup_tbl_Groups">
+      <End Role="tbl_Groups" EntitySet="tbl_Groups" />
+      <End Role="tbl_ItemGroup" EntitySet="tbl_ItemGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemGroup_tbl_Item" Association="Self.FK_tbl_ItemGroup_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemGroup" EntitySet="tbl_ItemGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemImage_tbl_Item" Association="Self.FK_tbl_ItemImage_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemImage" EntitySet="tbl_ItemImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_ItemSize_tbl_Item" Association="Self.FK_tbl_ItemSize_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_ItemSize" EntitySet="tbl_ItemSize" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Order_tbl_Customer" Association="Self.FK_tbl_Order_tbl_Customer">
+      <End Role="tbl_Customer" EntitySet="tbl_Customer" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Order_tbl_PaymentType1" Association="Self.FK_tbl_Order_tbl_PaymentType1">
+      <End Role="tbl_PaymentType" EntitySet="tbl_PaymentType" />
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_OrderItem_tbl_Item" Association="Self.FK_tbl_OrderItem_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_OrderItem" EntitySet="tbl_OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_OrderItem_tbl_Order" Association="Self.FK_tbl_OrderItem_tbl_Order">
+      <End Role="tbl_Order" EntitySet="tbl_Order" />
+      <End Role="tbl_OrderItem" EntitySet="tbl_OrderItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_Slider_tbl_Item" Association="Self.FK_tbl_Slider_tbl_Item">
+      <End Role="tbl_Item" EntitySet="tbl_Item" />
+      <End Role="tbl_Slider" EntitySet="tbl_Slider" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tbl_SubCategory_tbl_Category" Association="Self.FK_tbl_SubCategory_tbl_Category">
+      <End Role="tbl_Category" EntitySet="tbl_Category" />
+      <End Role="tbl_SubCategory" EntitySet="tbl_SubCategory" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

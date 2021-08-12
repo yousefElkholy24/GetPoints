@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace GetPointAdmin.Admin.Supplier
+{
+    public partial class SuppliersList : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+        protected void SuplierGrid_ToolbarItemClick(object sender, DevExpress.Web.Bootstrap.BootstrapGridViewToolbarItemClickEventArgs e)
+        {
+            if (e.Item.Name == "btnAddNew")
+            {
+                string TARGET_URL = "~/Admin/Supplier/AddSupplier.aspx";
+                if (Page.IsCallback) DevExpress.Web.ASPxWebControl.RedirectOnCallback(TARGET_URL); else Response.Redirect(TARGET_URL);
+            }
+            else if (e.Item.Name == "btnReport")
+            {
+                string TARGET_URL = "~/Admin/Supplier/SupplierReport.aspx";
+                if (Page.IsCallback) DevExpress.Web.ASPxWebControl.RedirectOnCallback(TARGET_URL); else Response.Redirect(TARGET_URL);
+            }
+        }
+        protected void SuplierGrid_CustomButtonCallback(object sender, DevExpress.Web.ASPxGridViewCustomButtonCallbackEventArgs e)
+        {
+            int RecordID = Convert.ToInt32(SuplierGrid.GetRowValues(e.VisibleIndex, "SupplierID"));
+            string TARGET_URL;
+            switch (e.ButtonID)
+            {
+                case "btnEdit":
+                    TARGET_URL = "~/Admin/Supplier/EditSupplier.aspx?id=" + RecordID.ToString();
+                    if (Page.IsCallback) DevExpress.Web.ASPxWebControl.RedirectOnCallback(TARGET_URL); else Response.Redirect(TARGET_URL);
+                    break;
+                case "btnSub":
+                    TARGET_URL = "~/Admin/Supplier/SubCategory.aspx?id=" + RecordID.ToString();
+                    if (Page.IsCallback) DevExpress.Web.ASPxWebControl.RedirectOnCallback(TARGET_URL); else Response.Redirect(TARGET_URL);
+                    break;
+                case "btnDelete":
+                    TARGET_URL = "~/Admin/Supplier/DeleteSupplier.aspx?id=" + RecordID.ToString();
+                    if (Page.IsCallback) DevExpress.Web.ASPxWebControl.RedirectOnCallback(TARGET_URL); else Response.Redirect(TARGET_URL);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+
+    }
+}
